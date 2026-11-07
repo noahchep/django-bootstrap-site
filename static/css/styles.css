@@ -302,11 +302,65 @@ kbd kbd {
 figure {
   margin: 0 0 1rem;
 }
+/* --- PROFILE IMAGE SETTINGS --- */
+.profile {
+    position: relative;
+    height: 75vw;
+    width: 75vw;
+    border-radius: 5vw;
+    margin-top: 5vw;
+    max-height: 40rem;
+    max-width: 40rem;
 
+    /* Optional: Hide overflow so the image doesn't spill out of the rounded corners */
+    overflow: hidden;
+}
+
+/* The gradient box */
+.profile {
+    position: relative;
+    height: 75vw;
+    width: 75vw;
+    border-radius: 5vw;
+    margin-top: 5vw;
+    max-height: 40rem;
+    max-width: 40rem;
+    overflow: hidden; /* This keeps the image inside the rounded corners */
+}
+
+/* The photograph */
+.profile .profile-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* This makes the image fill the whole box without stretching */
+    object-position: center; /* Centers the image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Removed the transform and bottom: 0 that were breaking it */
+}
+
+/* Keep the dots positioned correctly */
+.profile .dots-1 { position: absolute; width: 3vw; right: 1.5vw; top: 4vw; z-index: 2; }
+.profile .dots-2 { position: absolute; width: 3vw; right: -4vw; top: 6.05vw; z-index: 2; }
+.profile .dots-3 { position: absolute; width: 3vw; left: 1.5vw; bottom: 6.05vw; z-index: 2; }
+.profile .dots-4 { position: absolute; width: 3vw; left: -4vw; bottom: 4vw; z-index: 2; }
+
+/* Responsive adjustments */
+@media (min-width: 576px) { .profile { height: 60vw; width: 60vw; } }
+@media (min-width: 768px) { .profile { height: 50vw; width: 50vw; } }
+@media (min-width: 992px) {
+    .profile { height: 40vw; width: 40vw; }
+    .profile .dots-1, .dots-2, .dots-3, .dots-4 { width: 1.5vw; }
+}
+@media (min-width: 1200px) {
+    .profile { height: 35vw; width: 35vw; }
+}
 img,
 svg {
   vertical-align: middle;
 }
+
 
 table {
   caption-side: bottom;
