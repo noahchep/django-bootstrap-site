@@ -1,203 +1,529 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Personal - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="{% url 'home' %}"><span class="fw-bolder text-primary">Start Bootstrap</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'resume' %}">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'projects' %}">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+
+{% block title %}Resume | DevStudio — Team Experience & Skills{% endblock %}
+{% block meta_description %}Meet the DevStudio team — our combined experience, skills, education, and what each member brings to every project.{% endblock %}
+
+{% block content %}
+
+<!-- ============================================
+     RESUME HERO
+     ============================================ -->
+<header class="hero-section py-5">
+    <div class="container px-5 pb-4">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="text-center text-lg-start">
+                    <div class="badge bg-gradient-primary-to-secondary text-white mb-3 text-uppercase">
+                        Resume &middot; Team Capabilities
+                    </div>
+                    <h1 class="display-4 fw-bolder mb-3">
+                        <span class="text-gradient d-inline">Five builders, one delivery pipeline</span>
+                    </h1>
+                    <p class="lead text-muted mb-4" style="max-width: 620px;">
+                        Our combined resume: 3+ years of experience across backend engineering, frontend
+                        development, UI/UX design, and growth marketing — proven through 42+ shipped projects.
+                    </p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start">
+                        <a href="{% url 'projects' %}" class="btn btn-primary btn-lg px-4 py-3 fw-bolder">
+                            <i class="bi bi-folder2-open me-1"></i> View Portfolio
+                        </a>
+                        <a href="#team-resumes" class="btn btn-outline-dark btn-lg px-4 py-3 fw-bolder">
+                            <i class="bi bi-people me-1"></i> Meet Each Member
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center mt-4 mt-lg-0">
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <div class="resume-badge pop-card bg-gradient-primary-to-secondary text-white p-4 rounded-4 shadow-sm text-center">
+                        <div class="display-5 fw-bolder">42+</div>
+                        <div class="small text-uppercase opacity-75">Projects</div>
+                    </div>
+                    <div class="resume-badge pop-card bg-gradient-primary-to-secondary text-white p-4 rounded-4 shadow-sm text-center">
+                        <div class="display-5 fw-bolder">3+</div>
+                        <div class="small text-uppercase opacity-75">Years</div>
+                    </div>
+                    <div class="resume-badge pop-card bg-gradient-primary-to-secondary text-white p-4 rounded-4 shadow-sm text-center">
+                        <div class="display-5 fw-bolder">18</div>
+                        <div class="small text-uppercase opacity-75">Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ============================================
+     TEAM SUMMARY / OBJECTIVE
+     ============================================ -->
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-9 text-center reveal">
+                <div class="badge bg-gradient-primary-to-secondary text-white mb-3 text-uppercase">
+                    Team Objective
+                </div>
+                <h2 class="display-6 fw-bolder mb-3">
+                    <span class="text-gradient d-inline">What we do, together</span>
+                </h2>
+                <p class="lead text-muted mb-0">
+                    DevStudio is a five-person product team that ships full-stack web applications
+                    end-to-end. We pair-program daily, share a GitHub organization, and run 2-week
+                    sprints with a demo at the end of each. Our combined stack covers Django,
+                    Bootstrap, JavaScript, Figma, and technical SEO. We don't just write code — we
+                    design, build, test, and launch production products.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     COMBINED SKILLS
+     ============================================ -->
+<section class="py-5 skills-section">
+    <div class="container px-5">
+        <div class="text-center mb-5 reveal">
+            <div class="badge bg-gradient-primary-to-secondary text-white mb-3 text-uppercase">
+                Combined Tech Stack
+            </div>
+            <h2 class="display-5 fw-bolder mb-2">
+                <span class="text-gradient d-inline">Skills across the team</span>
+            </h2>
+            <p class="lead fw-light text-muted mx-auto" style="max-width: 640px;">
+                Every skill below is backed by production projects — not just tutorials.
+            </p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bolder">Python / Django</span>
+                        <span class="text-muted">92%</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient-primary-to-secondary skill-bar" role="progressbar" data-width="92" style="width: 0%" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bolder">HTML5 / CSS3 / Bootstrap 5</span>
+                        <span class="text-muted">95%</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient-primary-to-secondary skill-bar" role="progressbar" data-width="95" style="width: 0%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bolder">JavaScript (vanilla + Alpine)</span>
+                        <span class="text-muted">82%</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient-primary-to-secondary skill-bar" role="progressbar" data-width="82" style="width: 0%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bolder">UI/UX Design (Figma)</span>
+                        <span class="text-muted">85%</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient-primary-to-secondary skill-bar" role="progressbar" data-width="85" style="width: 0%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bolder">Git, GitHub, CI/CD</span>
+                        <span class="text-muted">88%</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient-primary-to-secondary skill-bar" role="progressbar" data-width="88" style="width: 0%" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-0">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="fw-bolder">Technical SEO &amp; Analytics</span>
+                        <span class="text-muted">78%</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-gradient-primary-to-secondary skill-bar" role="progressbar" data-width="78" style="width: 0%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     INDIVIDUAL MEMBER RESUMES
+     ============================================ -->
+<section class="bg-light py-5" id="team-resumes">
+    <div class="container px-5">
+        <div class="text-center mb-5 reveal">
+            <div class="badge bg-gradient-primary-to-secondary text-white mb-3 text-uppercase">
+                The Crew
+            </div>
+            <h2 class="display-5 fw-bolder mb-2">
+                <span class="text-gradient d-inline">Individual member resumes</span>
+            </h2>
+            <p class="lead fw-light text-muted">Each member owns a slice of the pipeline.</p>
+        </div>
+
+        <div class="row gx-5 gy-4">
+
+            <!-- Member 1 -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar me-3">
+                                <i class="bi bi-person-fill fs-3 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bolder mb-0">Member One</h5>
+                                <p class="text-muted small mb-0">Team Lead &middot; Backend Engineer</p>
+                            </div>
+                        </div>
+                        <p class="text-muted small mb-3">
+                            Leads sprint planning and backend architecture. Designs Django models,
+                            REST endpoints, and payment integrations. 3 years experience.
+                        </p>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Django, DRF, PostgreSQL</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Stripe &amp; M-Pesa integrations</li>
+                            <li><i class="bi bi-check-circle-fill text-gradient me-2"></i>GitHub org &amp; CI/CD</li>
                         </ul>
                     </div>
                 </div>
-            </nav>
-            <!-- Page Content-->
-            <div class="container px-5 my-5">
-                <div class="text-center mb-5">
-                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-11 col-xl-9 col-xxl-8">
-                        <!-- Experience Section-->
-                        <section>
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h2 class="text-primary fw-bolder mb-0">Experience</h2>
-                                <!-- Download resume button-->
-                                <!-- Note: Set the link href target to a PDF file within your project-->
-                                <a class="btn btn-primary px-4 py-3" href="#!">
-                                    <div class="d-inline-block bi bi-download me-2"></div>
-                                    Download Resume
-                                </a>
+            </div>
+
+            <!-- Member 2 -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar me-3">
+                                <i class="bi bi-person-fill fs-3 text-white"></i>
                             </div>
-                            <!-- Experience Card 1-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">2019 - Present</div>
-                                                <div class="small fw-bolder">Web Developer</div>
-                                                <div class="small text-muted">Stark Industries</div>
-                                                <div class="small text-muted">Los Angeles, CA</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
+                            <div>
+                                <h5 class="fw-bolder mb-0">Member Two</h5>
+                                <p class="text-muted small mb-0">Frontend Developer</p>
                             </div>
-                            <!-- Experience Card 2-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-primary fw-bolder mb-2">2017 - 2019</div>
-                                                <div class="small fw-bolder">SEM Specialist</div>
-                                                <div class="small text-muted">Wayne Enterprises</div>
-                                                <div class="small text-muted">Gotham City, NY</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Education Section-->
-                        <section>
-                            <h2 class="text-secondary fw-bolder mb-4">Education</h2>
-                            <!-- Education Card 1-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-secondary fw-bolder mb-2">2015 - 2017</div>
-                                                <div class="mb-2">
-                                                    <div class="small fw-bolder">Barnett College</div>
-                                                    <div class="small text-muted">Fairfield, NY</div>
-                                                </div>
-                                                <div class="fst-italic">
-                                                    <div class="small text-muted">Master's</div>
-                                                    <div class="small text-muted">Web Development</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Education Card 2-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <div class="row align-items-center gx-5">
-                                        <div class="col text-center text-lg-start mb-4 mb-lg-0">
-                                            <div class="bg-light p-4 rounded-4">
-                                                <div class="text-secondary fw-bolder mb-2">2011 - 2015</div>
-                                                <div class="mb-2">
-                                                    <div class="small fw-bolder">ULA</div>
-                                                    <div class="small text-muted">Los Angeles, CA</div>
-                                                </div>
-                                                <div class="fst-italic">
-                                                    <div class="small text-muted">Undergraduate</div>
-                                                    <div class="small text-muted">Computer Science</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8"><div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laudantium, voluptatem quis repellendus eaque sit animi illo ipsam amet officiis corporis sed aliquam non voluptate corrupti excepturi maxime porro fuga.</div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <!-- Divider-->
-                        <div class="pb-5"></div>
-                        <!-- Skills Section-->
-                        <section>
-                            <!-- Skillset Card-->
-                            <div class="card shadow border-0 rounded-4 mb-5">
-                                <div class="card-body p-5">
-                                    <!-- Professional skills list-->
-                                    <div class="mb-5">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-tools"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Professional Skills</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">SEO/SEM Marketing</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Statistical Analysis</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Web Development</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Network Security</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Adobe Software Suite</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">User Interface Design</div></div>
-                                        </div>
-                                    </div>
-                                    <!-- Languages list-->
-                                    <div class="mb-0">
-                                        <div class="d-flex align-items-center mb-4">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3"><i class="bi bi-code-slash"></i></div>
-                                            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">Languages</span></h3>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3 mb-4">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">HTML</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">CSS</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">JavaScript</div></div>
-                                        </div>
-                                        <div class="row row-cols-1 row-cols-md-3">
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Python</div></div>
-                                            <div class="col mb-4 mb-md-0"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Ruby</div></div>
-                                            <div class="col"><div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">Node.js</div></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                        </div>
+                        <p class="text-muted small mb-3">
+                            Turns Figma files into pixel-perfect, responsive Bootstrap components.
+                            Owns accessibility and cross-browser testing.
+                        </p>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>HTML5, CSS3, Bootstrap 5</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>JavaScript, Alpine.js</li>
+                            <li><i class="bi bi-check-circle-fill text-gradient me-2"></i>WCAG AA accessibility</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </main>
-        <!-- Footer-->
-        <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
+
+            <!-- Member 3 -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar me-3">
+                                <i class="bi bi-person-fill fs-3 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bolder mb-0">Member Three</h5>
+                                <p class="text-muted small mb-0">UI / UX Designer</p>
+                            </div>
+                        </div>
+                        <p class="text-muted small mb-3">
+                            Leads discovery, wireframes, and design systems in Figma. Runs usability
+                            testing and iterates on prototypes.
+                        </p>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Figma, FigJam, prototyping</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Design systems &amp; tokens</li>
+                            <li><i class="bi bi-check-circle-fill text-gradient me-2"></i>User research &amp; testing</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="{% static 'js/scripts.js' %}"></script>
-    </body>
-</html>
+
+            <!-- Member 4 -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar me-3">
+                                <i class="bi bi-person-fill fs-3 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bolder mb-0">Member Four</h5>
+                                <p class="text-muted small mb-0">Backend Developer</p>
+                            </div>
+                        </div>
+                        <p class="text-muted small mb-3">
+                            Partners with the team lead on Django apps, background tasks, and
+                            database optimization. Handles deployment.
+                        </p>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Django, Celery, Redis</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Docker &amp; deployment</li>
+                            <li><i class="bi bi-check-circle-fill text-gradient me-2"></i>Query optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Member 5 -->
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="avatar me-3">
+                                <i class="bi bi-person-fill fs-3 text-white"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bolder mb-0">Member Five</h5>
+                                <p class="text-muted small mb-0">Marketing &amp; SEO Lead</p>
+                            </div>
+                        </div>
+                        <p class="text-muted small mb-3">
+                            Runs technical SEO audits, sets up analytics, and writes go-to-market
+                            content. Measures what matters.
+                        </p>
+                        <ul class="list-unstyled small text-muted mb-0">
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Technical SEO &amp; Core Web Vitals</li>
+                            <li class="mb-1"><i class="bi bi-check-circle-fill text-gradient me-2"></i>Google Analytics / Tag Manager</li>
+                            <li><i class="bi bi-check-circle-fill text-gradient me-2"></i>Content &amp; email strategy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     EXPERIENCE TIMELINE
+     ============================================ -->
+<section class="py-5">
+    <div class="container px-5">
+        <div class="text-center mb-5 reveal">
+            <div class="badge bg-gradient-primary-to-secondary text-white mb-3 text-uppercase">
+                Track Record
+            </div>
+            <h2 class="display-5 fw-bolder mb-2">
+                <span class="text-gradient d-inline">Shared experience timeline</span>
+            </h2>
+            <p class="lead fw-light text-muted">Selected projects delivered together.</p>
+        </div>
+
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-9">
+
+                <!-- Item 1 -->
+                <div class="timeline-item pop-card card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-2">
+                            <h5 class="fw-bolder mb-1">Full-Stack E-commerce Platform</h5>
+                            <span class="badge bg-gradient-primary-to-secondary text-white align-self-start">2025</span>
+                        </div>
+                        <p class="text-muted small mb-2">Django &middot; PostgreSQL &middot; Stripe &middot; Bootstrap 5</p>
+                        <p class="text-muted mb-0">
+                            Multi-vendor marketplace with cart, checkout, admin dashboard, and role-based access.
+                            Shipped in 6 weeks with 5-member rotation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="timeline-item pop-card card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-2">
+                            <h5 class="fw-bolder mb-1">Real-Time Analytics Dashboard</h5>
+                            <span class="badge bg-gradient-primary-to-secondary text-white align-self-start">2025</span>
+                        </div>
+                        <p class="text-muted small mb-2">Django &middot; Chart.js &middot; Celery &middot; Redis</p>
+                        <p class="text-muted mb-0">
+                            KPI dashboard for a SaaS client with live charts, scheduled reports, and
+                            role-based data access.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="timeline-item pop-card card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-2">
+                            <h5 class="fw-bolder mb-1">Team Collaboration SaaS</h5>
+                            <span class="badge bg-gradient-primary-to-secondary text-white align-self-start">2024</span>
+                        </div>
+                        <p class="text-muted small mb-2">Django Channels &middot; Alpine.js &middot; WebSockets</p>
+                        <p class="text-muted mb-0">
+                            Task boards, mentions, and notifications in real time. Full test coverage with pytest.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="timeline-item pop-card card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-2">
+                            <h5 class="fw-bolder mb-1">Marketing Website &amp; SEO Overhaul</h5>
+                            <span class="badge bg-gradient-primary-to-secondary text-white align-self-start">2024</span>
+                        </div>
+                        <p class="text-muted small mb-2">Bootstrap 5 &middot; Technical SEO &middot; Analytics</p>
+                        <p class="text-muted mb-0">
+                            Rebuilt a client site for speed and accessibility. Cut LCP by 60%, boosted
+                            organic traffic 40% in 3 months.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     EDUCATION
+     ============================================ -->
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <div class="text-center mb-5 reveal">
+            <div class="badge bg-gradient-primary-to-secondary text-white mb-3 text-uppercase">
+                Education
+            </div>
+            <h2 class="display-5 fw-bolder mb-2">
+                <span class="text-gradient d-inline">Where we trained</span>
+            </h2>
+        </div>
+        <div class="row gx-5 gy-4 justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bolder mb-1">eMobilis Technology Institute</h5>
+                        <p class="text-muted small mb-2">Full-Stack Web Development &middot; 2024–2026</p>
+                        <p class="text-muted mb-0">
+                            Intensive project-based program covering Python, Django, JavaScript,
+                            Bootstrap, Git, and production deployment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5">
+                <div class="card border-0 shadow-sm pop-card h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bolder mb-1">Self-Taught &amp; Open Source</h5>
+                        <p class="text-muted small mb-2">Ongoing</p>
+                        <p class="text-muted mb-0">
+                            Continuous learning via official docs, open-source contributions, and
+                            peer code reviews on our shared GitHub organization.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     CTA
+     ============================================ -->
+<section class="py-5 bg-gradient-primary-to-secondary text-white">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-6 fw-bolder mb-3">Want the full team resume PDF?</h2>
+                <p class="lead fw-light mb-4">
+                    Get in touch and we'll send a one-page summary of every member's experience and skill set.
+                </p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-light btn-lg px-5 py-3 fs-6 fw-bolder" href="mailto:hello@devstudio.example">
+                        <i class="bi bi-envelope-fill me-2"></i>Email us
+                    </a>
+                    <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="{% url 'projects' %}">
+                        <i class="bi bi-folder2-open me-2"></i>Browse projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scroll-to-top -->
+<button type="button" class="btn btn-primary btn-lg rounded-circle position-fixed bottom-0 end-0 m-4 shadow scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="bi bi-arrow-up"></i>
+</button>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Resume page — small additions that reuse existing styles.css classes */
+    .resume-badge {
+        min-width: 120px;
+    }
+
+    .timeline-item {
+        border-left: 4px solid transparent !important;
+    }
+
+    .timeline-item:hover {
+        border-left-color: #e21e80 !important;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        /* Scroll-to-top */
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        if (scrollBtn) {
+            window.addEventListener('scroll', function () {
+                scrollBtn.style.display = window.scrollY > 300 ? 'inline-flex' : 'none';
+            }, { passive: true });
+            scrollBtn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        /* Skill bar animation */
+        const animateBars = function () {
+            document.querySelectorAll('.skill-bar').forEach(function (bar) {
+                bar.style.width = bar.dataset.width + '%';
+            });
+        };
+
+        /* Intersection Observer for reveal + bars */
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('skills-section')) {
+                        animateBars();
+                    }
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.25 });
+
+            document.querySelectorAll('.reveal, .skills-section').forEach(function (el) {
+                observer.observe(el);
+            });
+        } else {
+            document.querySelectorAll('.reveal').forEach(function (el) {
+                el.classList.add('visible');
+            });
+            animateBars();
+        }
+
+    });
+</script>
+{% endblock %}

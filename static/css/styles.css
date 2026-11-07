@@ -11732,3 +11732,190 @@ html {
     left: -2vw;
   }
 }
+
+/* ============================================================
+   DEVS TUDIO — CUSTOM ADDITIONS
+   (Append to the end of styles.css — after the .profile media queries)
+   ============================================================ */
+
+/* ---------- HERO SECTION ---------- */
+.hero-section {
+  background:
+    radial-gradient(1000px 400px at 90% 10%, rgba(30, 48, 243, 0.06), transparent 60%),
+    radial-gradient(800px 300px at 10% 90%, rgba(226, 30, 128, 0.06), transparent 60%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------- POP-UP CARD EFFECT ---------- */
+.pop-card {
+  position: relative;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+  will-change: transform;
+  transform: translateZ(0);
+  border: 1px solid transparent;
+}
+
+.pop-card:hover,
+.pop-card:focus-within {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 1.5rem 2.5rem rgba(30, 48, 243, 0.18),
+    0 0.5rem 1rem rgba(226, 30, 128, 0.12) !important;
+  border-color: rgba(226, 30, 128, 0.25);
+  z-index: 2;
+}
+
+.pop-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(30, 48, 243, 0.35), rgba(226, 30, 128, 0.35));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s ease;
+  filter: blur(14px);
+}
+
+.pop-card:hover::after,
+.pop-card:focus-within::after {
+  opacity: 1;
+}
+
+/* Icon bounce inside cards on hover */
+.pop-card .feature,
+.pop-card .project-thumb i {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pop-card:hover .feature,
+.pop-card:hover .project-thumb i {
+  transform: scale(1.15) rotate(-4deg);
+}
+
+/* ---------- PROJECT THUMB ---------- */
+.project-thumb {
+  height: 160px;
+  transition: filter 0.35s ease;
+}
+
+.pop-card:hover .project-thumb {
+  filter: brightness(1.08) saturate(1.15);
+}
+
+/* ---------- TEAM AVATARS ---------- */
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1e30f3, #e21e80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.08);
+}
+
+.team-member:hover .avatar {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow:
+    0 1rem 1.75rem rgba(30, 48, 243, 0.25),
+    0 0.25rem 0.5rem rgba(226, 30, 128, 0.2);
+}
+
+.avatar-sm {
+  width: 40px;
+  height: 40px;
+}
+
+/* ---------- SCROLL-TO-TOP BUTTON ---------- */
+.scroll-top-btn {
+  width: 48px;
+  height: 48px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------- REVEAL ON SCROLL ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- SKILL BAR ANIMATION ---------- */
+.skill-bar {
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- SOCIAL PROOF / TRUST BAR ---------- */
+.trust-bar-icon {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0.6;
+}
+
+.trust-bar-icon:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ---------- REDUCED MOTION (accessibility) ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pop-card,
+  .pop-card::after,
+  .pop-card .feature,
+  .pop-card .project-thumb,
+  .pop-card .project-thumb i,
+  .team-member .avatar,
+  .reveal,
+  .skill-bar,
+  .scroll-top-btn,
+  .trust-bar-icon {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .pop-card:hover,
+  .pop-card:focus-within {
+    transform: none !important;
+  }
+}
+
+/* ---------- RESPONSIVE TWEAKS ---------- */
+@media (max-width: 575.98px) {
+  .display-3 { font-size: 2.2rem; }
+  .display-4 { font-size: 2rem; }
+  .display-5 { font-size: 1.9rem; }
+  .display-6 { font-size: 1.6rem; }
+
+  /* Smaller pop on mobile so cards don't overlap neighbours */
+  .pop-card:hover,
+  .pop-card:focus-within {
+    transform: translateY(-6px) scale(1.015);
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+}
